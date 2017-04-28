@@ -23,6 +23,7 @@
             top: 60px;
             color: #ffffff;
             padding: 0 10px;
+            overflow: auto;
         }
 
         .header {
@@ -71,8 +72,15 @@
     </ul>
     <section class="mainContent">
         <p>
-            水电费家里卡萨丁解放路的说法
+            排行榜
         </p>
+        <ul>
+            <li v-for="track in topList" >
+                <h4>{{track.name}}</h4>
+                <audio :src="track.mp3Url"></audio>
+                <img :src="track.album.picUrl" alt="" width="100px">
+            </li>
+        </ul>
     </section>
 </div>
 </body>

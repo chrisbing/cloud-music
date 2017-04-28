@@ -4,19 +4,26 @@
 
 const fs = require('fs')
 const Vue = require('vue/dist/vue.common')
-
+const { getTopList } = require('./src/network')
 
 new Vue({
     el: '#main',
     data(){
         return {
             files: [],
-            index: 0
+            index: 0,
+            topList: []
         }
     },
     created(){
         fs.readdir('./', 'utf-8', (err, files) => {
             this.files = files
+        })
+
+        getTopList().then(({ data }) => {
+            if (data.code === 200) {
+                this.topList = data.result.tracks
+            }
         })
     }
 })
