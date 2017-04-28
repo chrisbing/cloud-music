@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <style>
+        html {
+            font-family: "PingFang SC", Arial, serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .mainContent {
+            position: absolute;
+            width: calc(100% - 200px);
+            left: 200px;
+            background: #262636;
+            height: calc(100% - 60px);
+            top: 60px;
+            color: #ffffff;
+            padding: 0 10px;
+        }
+
+        .header {
+            padding: 20px 15px 0;
+            background: #b02101;
+            height: 60px;
+            -webkit-app-region: drag;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #ffffff;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: normal;
+        }
+
+        .header input {
+            height: 24px;
+            border: none;
+            border-radius: 12px;
+            padding: 6px 6px;
+        }
+
+        .sidebar li {
+            list-style: none;
+            line-height: 28px;
+            font-size: 14px;
+            padding-left: 15px;
+        }
+
+        .sidebar li.active {
+            background: rgba(0, 0, 0, 0.07);
+        }
+    </style>
+</head>
+<body style="height: 100%;user-select: none">
+<div id="main">
+    <header class="header">
+        <h1>网易云音乐</h1>
+        <input type="text">
+    </header>
+    <ul class="sidebar">
+        <li v-for="(f, i) in files" :class="{active : index === i}" @click="index = i">{{f}}</li>
+    </ul>
+    <section class="mainContent">
+        <p>
+            水电费家里卡萨丁解放路的说法
+        </p>
+    </section>
+</div>
+</body>
+<script>
+    // You can also require other files to run in this process
+    require('./renderer.js')
+</script>
+</html>
